@@ -33,9 +33,6 @@ body {
   align-items: center;
 }
 
-.header__nav {
-}
-
 .header__menu {
   list-style-type: none;
   display: flex;
@@ -43,6 +40,30 @@ body {
 
 .header__list {
   margin-right: 40px;
+}
+
+.header__list:nth-child(2) {
+  position: relative;
+  padding-right: 18px;
+}
+
+.header__list:nth-child(2)::before {
+  content: "";
+  display: block;
+  position: absolute;
+  background-image: url(../img/trinagle.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 8px;
+  height: 6px;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  transition: 0.5s;
+}
+
+.header__list:hover::before {
+  transform: rotateX(180deg);
 }
 
 .header__list:last-child {
@@ -62,6 +83,105 @@ body {
 
 .header__link:hover {
   color: rgba(235, 87, 87, 1);
+}
+
+.header__dropdown {
+  position: absolute;
+  list-style-type: none;
+  left: 0;
+  top: 55px;
+  opacity: 0;
+  visibility: hidden;
+  background-color: #252830;
+  border-radius: 0px 0px 8px 8px;
+  transition: 0.3s;
+}
+
+.header__dropdown::before {
+  content: "";
+  display: block;
+  position: absolute;
+  background-image: url(../img/drop-arrow.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 28px;
+  height: 14px;
+  top: -14px;
+  left: 46px;
+}
+
+.header__list:nth-child(2):hover .header__dropdown {
+  opacity: 1;
+  visibility: visible;
+}
+
+.header__dropdown .header__list {
+  position: relative;
+  margin-right: 0;
+  transition: background 0.2s;
+  padding-right: 0;
+}
+
+.header__dropdown .header__list:hover {
+  background-color: #131417;
+  border-radius: inherit;
+}
+
+.header__dropdown .header__list:nth-child(2)::before {
+  display: none;
+}
+
+.header__dropdown .header__list:nth-child(4)::before {
+  content: "";
+  display: block;
+  position: absolute;
+  background-image: url(../img/trinagle.svg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 8px;
+  height: 6px;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+}
+
+.header__dropdown .header__list:hover::before {
+  transform: rotate(90deg);
+}
+
+.header__dropdown .header__link {
+  padding: 8px 18px;
+  font-size: 16px;
+  width: 265px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.header__dropdown .header__link:hover {
+  color: #fafafa;
+}
+
+.header__dropdown.__modify {
+  border-radius: 8px;
+  margin-top: 0;
+  left: 100%;
+  top: -40px;
+  opacity: 0;
+  visibility: hidden;
+  margin-left: 20px;
+}
+
+.header__dropdown.__modify::before {
+  top: auto;
+  bottom: 10px;
+  left: -18px;
+  transform: rotate(-90deg);
+}
+
+.header__dropdown .header__list:nth-child(4):hover .header__dropdown.__modify {
+  opacity: 1;
+  visibility: visible;
 }
 
 .header__call {
