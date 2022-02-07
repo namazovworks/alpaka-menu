@@ -1,4 +1,4 @@
-const widgetMenu = document.querySelector('.header__menu');
+const widgetMenu = document.querySelector('.js-nav');
 const layer = document.querySelector('.js-layer');
 const button = document.querySelector('.js-button');
 
